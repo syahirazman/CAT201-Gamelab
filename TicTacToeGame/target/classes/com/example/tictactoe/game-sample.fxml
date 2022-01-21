@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eec9c4; -fx-border-color: #ab5768; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictactoe.GameController">
+    <FlowPane layoutX="312.0" layoutY="111.0" prefHeight="245.0" prefWidth="245.0">
+        <Button fx:id="box1" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box3" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box4" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box5" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box6" layoutX="85.0" layoutY="85.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box7" layoutX="160.0" layoutY="85.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box8" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+        <Button fx:id="box9" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" textAlignment="CENTER" textFill="#c10c0c">
+            <font>
+                <Font size="24.0" />
+            </font></Button>
+    </FlowPane>
+    <Text fx:id="Finished" fill="#dd264b" layoutX="296.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's Play!" textAlignment="CENTER" wrappingWidth="277.0">
+        <font>
+            <Font name="Droid Serif Bold" size="18.0" />
+        </font>
+    </Text>
+    <Button layoutX="127.0" layoutY="318.0" mnemonicParsing="false" onAction="#restartButton" text="Restart" textFill="#972a60">
+        <font>
+            <Font name="JetBrains Mono Regular" size="12.0" />
+        </font></Button>
+    <Text fill="#d035ac" layoutX="44.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click here to restart the game:" textAlignment="CENTER" wrappingWidth="232.369140625">
+        <font>
+            <Font name="JetBrains Mono Medium" size="12.0" />
+        </font>
+    </Text>
+    <Text fill="#901b6b" layoutX="44.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIC-TAC-TOE" textAlignment="CENTER" underline="true" wrappingWidth="232.369140625">
+        <font>
+            <Font name="System Bold" size="36.0" />
+        </font>
+    </Text>
+    <Text fx:id="Rules" fill="#802a4c" layoutX="74.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules: Make a row of XXX or OOO to win the game!" textAlignment="CENTER" wrappingWidth="168.01171875">
+        <font>
+            <Font name="System Bold Italic" size="14.0" />
+        </font></Text>
+    <TextField fx:id="playerName1" layoutX="158.0" layoutY="115.0" onKeyTyped="#getName1" prefHeight="7.0" prefWidth="94.0" />
+    <TextField fx:id="playerName2" layoutX="158.0" layoutY="148.0" onKeyTyped="#getName2" prefHeight="7.0" prefWidth="94.0" />
+    <Text layoutX="64.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Player 1 : " wrappingWidth="94.0">
+        <font>
+            <Font name="Arial" size="12.0" />
+        </font>
+    </Text>
+    <Text layoutX="64.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Player 2 : " wrappingWidth="94.0">
+        <font>
+            <Font name="Arial" size="12.0" />
+        </font>
+    </Text>
+</AnchorPane>
