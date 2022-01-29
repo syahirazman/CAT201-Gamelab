@@ -33,7 +33,7 @@ public class brickController implements Initializable
     private AnchorPane scene;
 
     @FXML
-    private Circle circle;
+    private Circle ball;
 
     @FXML
     private Rectangle paddle;
@@ -50,7 +50,7 @@ public class brickController implements Initializable
     @FXML
     private Text gameName;
 
-    private int paddleStartSize = 550;
+    private int paddleSize = 550;
 
     Robot robot = new Robot();
 
@@ -64,15 +64,15 @@ public class brickController implements Initializable
         @Override
         public void handle(ActionEvent actionEvent)
         {
-            movePaddle();
+            controlPaddle();
 
-            checkCollisionPaddle(paddle);
-            circle.setLayoutX(circle.getLayoutX() + bX);
-            circle.setLayoutY(circle.getLayoutY() + bY);
+            collisionPaddle(paddle);
+            ball.setLayoutX(ball.getLayoutX() + bX);
+            ball.setLayoutY(ball.getLayoutY() + bY);
 
             if(!bricks.isEmpty())
             {
-                bricks.removeIf(brick -> checkCollisionBrick(brick));
+                bricks.removeIf(brick -> collisionBrick(brick));
             } else
             {
                 timeline.stop();
@@ -82,8 +82,8 @@ public class brickController implements Initializable
                 startButton.setText("RESTART");
             }
 
-            checkCollisionScene(scene);
-            checkCollisionBottomZone();
+            collisionBorder(scene);
+            fallingBottomZone();
         }
     }));
 
@@ -91,41 +91,8 @@ public class brickController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        paddle.setWidth(paddleStartSize);
+        paddle.setWidth(paddleSize);
         timeline.setCycleCount(Animation.INDEFINITE);
-    }
-
-    @FXML
-    void startGameButtonAction()
-    {
-        startButton.setVisible(false);
-        gameOver.setVisible(false);
-        gameName.setVisible(false);
-        startGame();
-    }
-
-    public void startGame()
-    {
-        createBricks();
-        timeline.play();
-    }
-
-    public void checkCollisionScene(Node node)
-    {
-        Bounds bounds = node.getBoundsInLocal();
-        boolean rightBorder = circle.getLayoutX() >= (bounds.getMaxX() - circle.getRadius());
-        boolean leftBorder = circle.getLayoutX() <= (bounds.getMinX() + circle.getRadius());
-        boolean bottomBorder = circle.getLayoutY() >= (bounds.getMaxY() - circle.getRadius());
-        boolean topBorder = circle.getLayoutY() <= (bounds.getMinY() + circle.getRadius());
-
-        if (rightBorder || leftBorder)
-        {
-            bX *= -1;
-        }
-        if (bottomBorder || topBorder)
-        {
-            bY *= -1;
-        }
     }
 
     public void createBricks()
@@ -150,15 +117,49 @@ public class brickController implements Initializable
     }
 
 
-    public boolean checkCollisionBrick(Rectangle brick)
+    public void startGameButton()
+    {
+        createBricks();
+        timeline.play();
+    }
+
+    @FXML
+    void startGameButtonAction()
+    {
+        startButton.setVisible(false);
+        gameOver.setVisible(false);
+        gameName.setVisible(false);
+        startGameButton();
+    }
+
+    public void collisionBorder(Node node)
+    {
+        Bounds bounds = node.getBoundsInLocal();
+        boolean rightBorder = ball.getLayoutX() >= (bounds.getMaxX() - ball.getRadius());
+        boolean leftBorder = ball.getLayoutX() <= (bounds.getMinX() + ball.getRadius());
+        boolean bottomBorder = ball.getLayoutY() >= (bounds.getMaxY() - ball.getRadius());
+        boolean topBorder = ball.getLayoutY() <= (bounds.getMinY() + ball.getRadius());
+
+        if (rightBorder || leftBorder)
+        {
+            bX *= -1;
+        }
+        if (bottomBorder || topBorder)
+        {
+            bY *= -1;
+        }
+    }
+
+
+    public boolean collisionBrick(Rectangle brick)
     {
 
-        if(circle.getBoundsInParent().intersects(brick.getBoundsInParent()))
+        if(ball.getBoundsInParent().intersects(brick.getBoundsInParent()))
         {
-            boolean rightBorder = circle.getLayoutX() >= ((brick.getX() + brick.getWidth()) - circle.getRadius());
-            boolean leftBorder = circle.getLayoutX() <= (brick.getX() + circle.getRadius());
-            boolean bottomBorder = circle.getLayoutY() >= ((brick.getY() + brick.getHeight()) - circle.getRadius());
-            boolean topBorder = circle.getLayoutY() <= (brick.getY() + circle.getRadius());
+            boolean rightBorder = ball.getLayoutX() >= ((brick.getX() + brick.getWidth()) - ball.getRadius());
+            boolean leftBorder = ball.getLayoutX() <= (brick.getX() + ball.getRadius());
+            boolean bottomBorder = ball.getLayoutY() >= ((brick.getY() + brick.getHeight()) - ball.getRadius());
+            boolean topBorder = ball.getLayoutY() <= (brick.getY() + ball.getRadius());
 
             if (rightBorder || leftBorder)
             {
@@ -178,7 +179,7 @@ public class brickController implements Initializable
     }
 
 
-    public void movePaddle()
+    public void controlPaddle()
     {
         Bounds bounds = scene.localToScreen(scene.getBoundsInLocal());
         double sceneXPos = bounds.getMinX();
@@ -195,15 +196,15 @@ public class brickController implements Initializable
         }
     }
 
-    public void checkCollisionPaddle(Rectangle paddle)
+    public void collisionPaddle(Rectangle paddle)
     {
 
-        if(circle.getBoundsInParent().intersects(paddle.getBoundsInParent()))
+        if(ball.getBoundsInParent().intersects(paddle.getBoundsInParent()))
         {
-            boolean rightBorder = circle.getLayoutX() >= ((paddle.getLayoutX() + paddle.getWidth()) - circle.getRadius());
-            boolean leftBorder = circle.getLayoutX() <= (paddle.getLayoutX() + circle.getRadius());
-            boolean bottomBorder = circle.getLayoutY() >= ((paddle.getLayoutY() + paddle.getHeight()) - circle.getRadius());
-            boolean topBorder = circle.getLayoutY() <= (paddle.getLayoutY() + circle.getRadius());
+            boolean rightBorder = ball.getLayoutX() >= ((paddle.getLayoutX() + paddle.getWidth()) - ball.getRadius());
+            boolean leftBorder = ball.getLayoutX() <= (paddle.getLayoutX() + ball.getRadius());
+            boolean bottomBorder = ball.getLayoutY() >= ((paddle.getLayoutY() + paddle.getHeight()) - ball.getRadius());
+            boolean topBorder = ball.getLayoutY() <= (paddle.getLayoutY() + ball.getRadius());
 
             if (rightBorder || leftBorder)
             {
@@ -216,9 +217,9 @@ public class brickController implements Initializable
         }
     }
 
-    public void checkCollisionBottomZone()
+    public void fallingBottomZone()
     {
-        if(circle.getBoundsInParent().intersects(bottomZone.getBoundsInParent()))
+        if(ball.getBoundsInParent().intersects(bottomZone.getBoundsInParent()))
         {
             timeline.stop();
             bricks.forEach(brick -> scene.getChildren().remove(brick));
@@ -228,13 +229,13 @@ public class brickController implements Initializable
             startButton.setVisible(true);
             startButton.setText("RESTART");
 
-            paddle.setWidth(paddleStartSize);
+            paddle.setWidth(paddleSize);
 
             bX = -1;
             bY = -3;
 
-            circle.setLayoutX(300);
-            circle.setLayoutY(300);
+            ball.setLayoutX(300);
+            ball.setLayoutY(300);
 
         }
     }
