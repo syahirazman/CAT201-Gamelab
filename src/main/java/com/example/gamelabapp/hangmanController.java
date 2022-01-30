@@ -42,12 +42,13 @@ public class hangmanController implements Initializable {
             "brunei", "bahrain", "singapore", "maldives"
     };
 
-    private String wordToBeGuessed;
+    private String wordToBeGuessed;  //declare string of words to be guessed
 
-    private final StringBuilder hiddenWord = new StringBuilder();
+    private final StringBuilder hiddenWord = new StringBuilder();  //define object
 
-    private int usedLives = 0;
+    private int usedLives = 0;  //initialize usedLive
 
+    //array list for hangman states when player guesses the word
     ArrayList<String> hangmanState = new ArrayList<>(Arrays.asList(
             """
             +---+
@@ -133,6 +134,7 @@ public class hangmanController implements Initializable {
         guessingSpace.setText(String.valueOf(hiddenWord));
     }
 
+    // game flow
     @FXML
     public void startGuessing(){
         String playerGuess = this.playerInput.getText();
@@ -177,6 +179,7 @@ public class hangmanController implements Initializable {
         gameOverMessage.setText("Game has been RESET! Press START to play a new game :)");
     }
 
+    // return to main application after Back button is clicked
     @FXML
     void backtoHome(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();

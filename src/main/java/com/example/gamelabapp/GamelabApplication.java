@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GamelabApplication extends Application {
+
+    // create scene and stage for main application
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GamelabApplication.class.getResource("home.fxml"));
@@ -17,6 +19,7 @@ public class GamelabApplication extends Application {
         stage.show();
     }
 
+    // starting point to launch the application
     public static void main(String[] args) {
         launch();
     }

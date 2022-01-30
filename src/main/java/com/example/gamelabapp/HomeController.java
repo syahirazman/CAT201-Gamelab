@@ -11,15 +11,20 @@ import java.io.IOException;
 
 
 public class HomeController {
+
+    // id button for XOXO game
     @FXML
     private Button game1;
 
+    // id button for Guess4Life game
     @FXML
     private Button game2;
 
+    // id button for Break It! game
     @FXML
     private Button game3;
 
+    // launch XOXO game in the same window after player clicks on button
     @FXML
     void playGame1(ActionEvent event) throws IOException {
         if(event.getSource().equals(game1)){
@@ -34,6 +39,7 @@ public class HomeController {
         }
     }
 
+    // launch Guess4Life game in the same window after player clicks on button
     @FXML
     void playGame2(ActionEvent event) throws IOException {
         if(event.getSource().equals(game2)){
@@ -48,6 +54,7 @@ public class HomeController {
         }
     }
 
+    // launch Break It! game in the same window after player clicks on button
     @FXML
     void playGame3(ActionEvent event) throws IOException {
         if(event.getSource().equals(game3)){

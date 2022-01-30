@@ -28,37 +28,47 @@ import java.util.ResourceBundle;
 
 public class brickController implements Initializable
 {
-
+    // id of Anchor Pane container
     @FXML
     private AnchorPane scene;
 
+    // id of Ball brick breaker
     @FXML
     private Circle ball;
 
+    // id of Ball's paddle
     @FXML
     private Rectangle paddle;
 
+    // id of bottom zone where game is over if ball enters this zone
     @FXML
     private Rectangle bottomZone;
 
+    // id of button to start game
     @FXML
     private Button startButton;
 
+    // id of text Game Over
     @FXML
     private Text gameOver;
 
+    // id of text Break It!
     @FXML
     private Text gameName;
 
+    // paddle size at the beginning of the game
     private int paddleSize = 550;
 
+    // define new object
     Robot robot = new Robot();
 
+    // array list for bricks
     private ArrayList<Rectangle> bricks = new ArrayList<>();
 
     double bX = -1;
     double bY = -3;
 
+    // game flow
     Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>()
     {
         @Override
@@ -87,7 +97,7 @@ public class brickController implements Initializable
         }
     }));
 
-
+    // initialize paddle size and game
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -95,6 +105,7 @@ public class brickController implements Initializable
         timeline.setCycleCount(Animation.INDEFINITE);
     }
 
+    // create bricks for game
     public void createBricks()
     {
         double width = 560;
@@ -116,13 +127,14 @@ public class brickController implements Initializable
         }
     }
 
-
+    // after Start button is clicked, bricks are created and game starts
     public void startGameButton()
     {
         createBricks();
         timeline.play();
     }
 
+    // after Start button is clicked, the button and the texts are not visible
     @FXML
     void startGameButtonAction()
     {
@@ -132,6 +144,7 @@ public class brickController implements Initializable
         startGameButton();
     }
 
+    // set collision border
     public void collisionBorder(Node node)
     {
         Bounds bounds = node.getBoundsInLocal();
@@ -150,7 +163,7 @@ public class brickController implements Initializable
         }
     }
 
-
+    // check collision between ball and brick, and remove the brick when collision happens
     public boolean collisionBrick(Rectangle brick)
     {
 
@@ -178,7 +191,7 @@ public class brickController implements Initializable
         return false;
     }
 
-
+    // control paddle movement following the mouse movement
     public void controlPaddle()
     {
         Bounds bounds = scene.localToScreen(scene.getBoundsInLocal());
@@ -196,6 +209,7 @@ public class brickController implements Initializable
         }
     }
 
+    // set paddle after collision
     public void collisionPaddle(Rectangle paddle)
     {
 
@@ -217,6 +231,7 @@ public class brickController implements Initializable
         }
     }
 
+    // check bottom zone
     public void fallingBottomZone()
     {
         if(ball.getBoundsInParent().intersects(bottomZone.getBoundsInParent()))
@@ -240,6 +255,7 @@ public class brickController implements Initializable
         }
     }
 
+    // return to main application after clicking the Back button
     @FXML
     void backToHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();

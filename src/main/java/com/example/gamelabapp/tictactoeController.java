@@ -3,8 +3,6 @@ package com.example.gamelabapp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,8 +15,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
-
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Node;
 
 public class tictactoeController implements Initializable {
 
@@ -131,6 +127,7 @@ public class tictactoeController implements Initializable {
         pwins = 0;
     }
 
+    //function to return to main application when Back button is clicked
     @FXML
     void backToHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();

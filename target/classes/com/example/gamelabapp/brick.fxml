@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #94d7a8; -fx-border-color: #e06998; -fx-border-width: 1.5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gamelabapp.brickController">
-    <Circle fx:id="circle" fill="#7ccc7c" layoutX="300.0" layoutY="300.0" radius="5.0" stroke="#19591d" strokeType="INSIDE" strokeWidth="1.5" />
+    <Circle fx:id="ball" fill="#7ccc7c" layoutX="300.0" layoutY="300.0" radius="5.0" stroke="#19591d" strokeType="INSIDE" strokeWidth="1.5" />
     <Rectangle fx:id="paddle" arcHeight="5.0" arcWidth="5.0" fill="#7ccc7c" height="10.0" layoutX="256.0" layoutY="344.0" stroke="#19591d" strokeType="INSIDE" strokeWidth="1.5" width="88.0" />
     <Rectangle fx:id="bottomZone" arcHeight="2.0" arcWidth="5.0" fill="TRANSPARENT" height="10.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
     <Button fx:id="startButton" layoutX="227.0" layoutY="200.0" mnemonicParsing="false" onAction="#startGameButtonAction" prefHeight="57.0" prefWidth="136.0" style="-fx-border-color: #e06998; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-color: #ffc6dd; -fx-border-insets: -2;" text="START" textAlignment="CENTER" textFill="#e06998">
