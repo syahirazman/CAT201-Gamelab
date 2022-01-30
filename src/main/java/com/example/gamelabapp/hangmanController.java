@@ -187,6 +187,7 @@ public class hangmanController implements Initializable {
         Stage stage;
         stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Welcome to Gamelab!");
         stage.setScene(scene);
         stage.show();
     }
