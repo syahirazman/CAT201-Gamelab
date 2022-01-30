@@ -41,7 +41,7 @@
         <effect>
             <InnerShadow />
         </effect></Button>
-    <Text fill="#4c1010" layoutX="196.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HANGMAN ">
+    <Text fill="#4c1010" layoutX="196.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GUESS4LIFE">
         <font>
             <Font name="MV Boli" size="36.0" />
         </font>

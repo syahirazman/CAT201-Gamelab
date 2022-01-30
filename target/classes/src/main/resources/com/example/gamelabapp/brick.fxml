@@ -21,7 +21,7 @@
             <Font name="Franklin Gothic Medium" size="40.0" />
         </font>
     </Text>
-    <Text fx:id="gameName" fill="#67d286" layoutX="112.0" layoutY="75.0" stroke="#218b21" strokeType="OUTSIDE" strokeWidth="3.0" text="BRICK BREAKER" textAlignment="CENTER" wrappingWidth="374.7249450683594">
+    <Text fx:id="gameName" fill="#67d286" layoutX="112.0" layoutY="75.0" stroke="#218b21" strokeType="OUTSIDE" strokeWidth="3.0" text="BREAK IT!" textAlignment="CENTER" wrappingWidth="374.7249450683594">
         <font>
             <Font name="Gulim" size="52.0" />
         </font>
